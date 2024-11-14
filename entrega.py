@@ -1,10 +1,16 @@
 import pygame
-import sys
 
 # Configuración inicial
 WIDTH, HEIGHT = 800, 600
 BACKGROUND_COLOR = (50, 50, 50)  # Color predeterminado por si no hay imagen
 ERIZO_SPEED = 5
+
+# Cargar el fondo y el splash art del erizo
+background_image = pygame.image.load("img/fondo.jpg")  # Asegúrate de que la ruta sea correcta
+erizo_image = pygame.image.load("img/erizo.png")  # Asegúrate de que la ruta sea correcta
+
+# Redimensionar la imagen del erizo si es necesario
+erizo_image = pygame.transform.scale(erizo_image, (300, 300))  # Ajustar tamaño del erizo
 
 def initialize_pygame():
     """Inicializa pygame y crea la ventana."""
@@ -44,19 +50,10 @@ def main_loop(screen, background_image, erizo_image):
         clock.tick(60)
 
     pygame.quit()
-    sys.exit()
 
 def run():
     """Función principal para iniciar el programa."""
     screen = initialize_pygame()
-
-    # Cargar el fondo y el splash art del erizo
-    background_image = pygame.image.load("img/fondo.jpg")  # Asegúrate de que la ruta sea correcta
-    erizo_image = pygame.image.load("img/erizo.png")  # Asegúrate de que la ruta sea correcta
-
-    # Redimensionar la imagen del erizo si es necesario
-    erizo_image = pygame.transform.scale(erizo_image, (300, 300))  # Ajustar tamaño del erizo
-
     main_loop(screen, background_image, erizo_image)
 
 # Ejecutar el programa
